@@ -1,0 +1,29 @@
+.card-image {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  height: 200px;
+  object-fit: cover;
+  //object-fit: contain;//Redimensiona para aparece completa no card
+}
+
+.card-title {
+  text-align: center;
+  min-height: 4.5rem;
+}
+ .btn {
+   font-size: 14px;
+   font-weight: 700;
+   width: 180px;
+ }
+
+ .stars {
+   margin-right: 5px;
+ }
+
+ .small-text {
+   font-size: 12px;
+ }
+
+ .card-body {
+   min-height: 12.5rem;
+ }

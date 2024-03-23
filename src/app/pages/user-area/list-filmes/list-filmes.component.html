@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <div class="container float-start">
+    <div class="col-12 col-sm-12">
+      <div class="d-flex justify-content-center">
+        <pagination-controls  id="first"
+                              class="my-pagination"
+                              previousLabel="Anterior"
+                              nextLabel="Próxima"
+                              (pageChange)="aoSelecionarPagina($event)">
+        </pagination-controls>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    @for (filme of filmes?.content | paginate: this.configuracaoPaginators; track filme.id) {
+      <div class="col-sm-6 col-lg-4 col-xl-3 mb-3">
+        <app-card-filme [filme]="filme"></app-card-filme>
+      </div>
+    }
+  </div>
+</div>

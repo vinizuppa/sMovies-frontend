@@ -1,0 +1,23 @@
+<div class="card text-center" style="width: 18rem;">
+  <img class="card-image" [src]="filme.urlImagemCapa" />
+  <div class="card-body pt-0">
+    <h5 class="card-title">{{filme.nomeCompleto}}</h5>
+    <div class="row">
+      <small class="text-warning">
+        <b>{{filme.mediaNota == 0 ? "-" : Number(filme?.mediaNota).toFixed(2)}}</b>
+      </small>
+
+      <div class="col">
+        <i *ngFor = "let m of filme?.estrelaDto?.qtdEstrelaCheia" class="bi bi-star-fill text-warning stars" style="font-size: 1.5rem"></i>
+        <i *ngFor = "let d of filme?.estrelaDto?.qtdEstrelaMetade" class="bi bi-star-half text-warning stars" style="font-size: 1.5rem"></i>
+        <i *ngFor = "let s of filme?.estrelaDto?.qtdEstrelaVazia" class="bi bi-star text-warning stars" style="font-size: 1.5rem"></i>
+        <small class="text-black-50">
+          <h6 class="small-text">{{filme?.qtdAvaliacoes}} avaliações</h6>
+        </small>
+      </div>
+    </div>
+
+    <a href="#" class="btn btn-danger">Avaliar</a>
+  </div>
+</div>
+
