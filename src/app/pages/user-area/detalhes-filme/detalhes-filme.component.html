@@ -1,0 +1,34 @@
+<div class="container mt-3 d-flex justify-content-center">
+  <div class="card mb-3">
+    <img [src]="filmeDetalhes?.urlImagemCapa" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{filmeDetalhes?.nomeCompleto}}</h5>
+      <p class="card-text">{{filmeDetalhes?.sinopse}}</p>
+      <p class="card-text">
+        <small class="text-muted"><b>Lançamento:</b> {{formatarData(filmeDetalhes?.dataLancamento.toString())}}
+          | <b>Diretor(es):</b> {{nomesDiretores}}
+        </small>
+      </p>
+      <hr>
+      <form [formGroup]="formAvaliacao">
+        <h5 class="card-title">Avaliação</h5>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" class="form-control" formControlName="email" id="email" ngModel email>
+        </div>
+
+        <div class="mb-3">
+          <label for="nota" class="form-label">Nota(1 a 5)</label>
+          <input (input)="limitarNota()" type="number" class="form-control" formControlName="nota" id="nota" min="0" max="5">
+        </div>
+
+        <div class="mb-3">
+          <label for="avaliacao" class="form-label">Avaliação</label>
+          <textarea class="form-control" formControlName="avaliacao" id="avaliacao"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-danger me-2" [disabled]="!isFormValido()" (click)="salvarAvaliacao()">Avaliar</button>
+      </form>
+    </div>
+  </div>
+</div>

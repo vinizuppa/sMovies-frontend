@@ -1,0 +1,15 @@
+.card-img-top {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  height: 200px;
+  object-fit: cover;
+  //object-fit: contain;//Redimensiona para aparece completa no card
+}
+
+.card {
+  max-width: 45rem;
+}
+
+.card-title {
+  text-align: center;
+}
