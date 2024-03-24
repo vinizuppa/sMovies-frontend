@@ -4,7 +4,7 @@ import {NgForOf} from "@angular/common";
 import {Page} from "../../../models/abstracts/page";
 import {FilmeService} from "../../../services/filme.service";
 import {FiltroDto} from "../../../models/dtos/filtro-dto";
-import {FilmeResponseDto} from "../../../models/dtos/filmes/filme-response-dto";
+import {FilmeListaResponseDto} from "../../../models/dtos/filmes/filme-lista-response-dto";
 import {GlobalConfigurations} from "../../../../environment/environment";
 import {NgxPaginationModule, PaginatePipeArgs} from "ngx-pagination";
 
@@ -27,7 +27,7 @@ export class ListFilmesComponent implements OnInit {
     id: 'first'
   };
 
-  public filmes: Page<FilmeResponseDto>;
+  public filmes: Page<FilmeListaResponseDto>;
 
   constructor(public filmeService: FilmeService) {
     this.buscarTodosFilmesPaginados(null);

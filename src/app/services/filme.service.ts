@@ -5,7 +5,8 @@ import {FilmeModel} from "../models/filme-model";
 import {Page} from "../models/abstracts/page";
 import {environment} from "../../environment/environment";
 import {FiltroDto} from "../models/dtos/filtro-dto";
-import {FilmeResponseDto} from "../models/dtos/filmes/filme-response-dto";
+import {FilmeListaResponseDto} from "../models/dtos/filmes/filme-lista-response-dto";
+import {FilmeDetalhesResponseDto} from "../models/dtos/filmes/filme-detalhes-response-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,11 @@ export class FilmeService {
 
   }
 
-  buscarTodosFilmes(filtro: FiltroDto): Observable<Page<FilmeResponseDto>> {
-    return this.http.post<Page<FilmeResponseDto>>(environment.apiUrl + '/filme/filtro', filtro)
+  buscarTodosFilmes(filtro: FiltroDto): Observable<Page<FilmeListaResponseDto>> {
+    return this.http.post<Page<FilmeListaResponseDto>>(environment.apiUrl + '/filme/filtro', filtro)
+  }
+
+  buscarDetalheFilme(id: string): Observable<FilmeDetalhesResponseDto> {
+    return this.http.get<FilmeDetalhesResponseDto>(environment.apiUrl + '/filme/' + id)
   }
 }
