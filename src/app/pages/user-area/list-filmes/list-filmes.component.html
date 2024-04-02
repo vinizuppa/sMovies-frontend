@@ -14,7 +14,7 @@
   <div class="row">
     @for (filme of filmes?.content | paginate: this.configuracaoPaginators; track filme.id) {
       <div class="col-sm-6 col-lg-4 col-xl-3 mb-3">
-        <app-card-filme [filme]="filme"></app-card-filme>
+        <app-card-filme [filme]="filme" (aoClicarListarAvaliacoes)="abrirModalAvaliacoesFilme($event)"></app-card-filme>
       </div>
     }
   </div>

@@ -1,0 +1,49 @@
+<div class="modal-header">
+  <h4 class="modal-title">Avaliações</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close('Close click')"></button>
+</div>
+
+<div class="modal-body">
+  <div class="mb-2">
+    <ul class="list-group">
+      @for (filme of filmeAvaliacaoDtoPage?.content | paginate: this.configuracaoPaginators; track filme) {
+        <li class="list-group-item">
+          <div class="row">
+            <img src="assets/avatar_2x.png" class="img-thumbnail">
+            <span class="mx-2 col-auto">
+              <b>{{filme.nomeAvaliador}}</b>
+              <div>
+                <i *ngFor = "let qec of filme?.estrelaDto?.qtdEstrelaCheia" class="bi bi-star-fill text-warning stars" style="font-size: 1.2rem"></i>
+                <i *ngFor = "let qem of filme?.estrelaDto?.qtdEstrelaMetade" class="bi bi-star-half text-warning stars" style="font-size: 1.2rem"></i>
+                <i *ngFor = "let qev of filme?.estrelaDto?.qtdEstrelaVazia" class="bi bi-star text-warning stars" style="font-size: 1.2rem"></i>
+              </div>
+            </span>
+          </div>
+
+          <div class="mt-2">
+            <small class="mx-1 mt-1">
+              {{filme?.avaliacao}}
+            </small>
+          </div>
+        </li>
+      } @empty {
+        <span class="text-center">
+          <b>Nenhuma Avaliação</b>
+        </span>
+      }
+    </ul>
+  </div>
+
+  <div class="container float-start">
+    <div class="col-12 col-sm-12">
+      <div class="d-flex justify-content-center">
+        <pagination-controls  id="second"
+                              class="my-pagination"
+                              previousLabel="Anterior"
+                              nextLabel="Próxima"
+                              (pageChange)="aoSelecionarPagina($event)">
+        </pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

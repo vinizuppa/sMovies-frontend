@@ -27,3 +27,11 @@
  .card-body {
    min-height: 12.5rem;
  }
+
+ .avaliacao {
+   cursor: pointer;
+ }
+
+ .avaliacao:hover {
+   text-decoration: underline;
+ }

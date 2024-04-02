@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {CardFilmeComponent} from "../../../components/card-filme/card-filme.component";
 import {NgForOf} from "@angular/common";
 import {Page} from "../../../models/abstracts/page";
@@ -7,6 +7,8 @@ import {FiltroDto} from "../../../models/dtos/filtro-dto";
 import {FilmeListaResponseDto} from "../../../models/dtos/filmes/filme-lista-response-dto";
 import {GlobalConfigurations} from "../../../../environment/environment";
 import {NgxPaginationModule, PaginatePipeArgs} from "ngx-pagination";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ModalAvaliacoesComponent} from "../../../components/modal-avaliacoes/modal-avaliacoes.component";
 
 @Component({
   selector: 'app-list-filmes',
@@ -28,6 +30,8 @@ export class ListFilmesComponent implements OnInit {
   };
 
   public filmes: Page<FilmeListaResponseDto>;
+  private modalService = inject(NgbModal);
+
 
   constructor(public filmeService: FilmeService) {
     this.buscarTodosFilmesPaginados(null);
@@ -55,5 +59,10 @@ export class ListFilmesComponent implements OnInit {
       this.configuracaoPaginators.currentPage = event;
       this.configuracaoPaginators.totalItems = this.filmes?.totalElements;
     });
+  }
+
+  abrirModalAvaliacoesFilme(event: any) {
+    const modalRef = this.modalService.open(ModalAvaliacoesComponent, { size: 'xl', scrollable: true});
+    modalRef.componentInstance.filmeId = event;
   }
 }
