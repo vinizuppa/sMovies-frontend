@@ -16,7 +16,7 @@ import {response} from "express";
   templateUrl: './detalhes-filme.component.html',
   styleUrl: './detalhes-filme.component.scss'
 })
-export class DetalhesFilmeComponent implements OnInit{
+export class DetalhesFilmeComponent implements OnInit {
   public filmeId: string;
   public filmeDetalhes: FilmeDetalhesResponseDto;
   public formAvaliacao!: FormGroup;

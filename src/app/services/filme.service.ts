@@ -24,4 +24,8 @@ export class FilmeService {
   buscarDetalheFilme(id: string): Observable<FilmeDetalhesResponseDto> {
     return this.http.get<FilmeDetalhesResponseDto>(environment.apiUrl + '/filme/' + id)
   }
+
+  salvarFilme(filme: FilmeModel): Observable<any> {
+    return this.http.post<Observable<any>>(environment.apiUrl + '/filme', filme)
+  }
 }

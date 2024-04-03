@@ -1,0 +1,40 @@
+<div class="container mt-3 justify-content-center">
+  <div class="card mb-3">
+    <div class="card-body">
+      <form [formGroup]="formCadFilme">
+        <h5 class="card-title">Cadastro de Filme</h5>
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" class="form-control" formControlName="nome" id="nome">
+        </div>
+
+        <div class="mb-3">
+          <label for="urlImagem" class="form-label">Url Imagem</label>
+          <input type="text" class="form-control" formControlName="urlImagem" id="urlImagem">
+        </div>
+
+        <div class="mb-3">
+          <label for="dataLancamento" class="form-label">Data Lançamento</label>
+          <input type="date" class="form-control" formControlName="dataLancamento" id="dataLancamento">
+        </div>
+
+        <div class="mb-3">
+          <label for="diretor" class="form-label">Diretor</label>
+          <select class="form-select" formControlName="diretor" id="diretor">
+            <option value="null" selected>Selecione um Diretor</option>
+            @for (diretor of diretores; track diretor?.id) {
+              <option [value]="diretor?.id" data-subtext="Heinz">{{diretor?.nomeDiretor}}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="sinopse" class="form-label">Sinopse</label>
+          <textarea class="form-control" formControlName="sinopse" id="sinopse"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-danger me-2" (click)="salvarFilme()">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+</div>
